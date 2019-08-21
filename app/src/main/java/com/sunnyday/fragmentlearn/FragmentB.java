@@ -1,10 +1,13 @@
 package com.sunnyday.fragmentlearn;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -12,11 +15,20 @@ import android.view.ViewGroup;
  * */
 public class FragmentB extends Fragment {
 
+    private View mView;
+    private TextView textView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        mView = inflater.inflate(R.layout.fragment_b, container, false);
+        textView = mView.findViewById(R.id.tv_text);
+        return mView;
+    }
 
-        return inflater.inflate(R.layout.fragment_b, container, false);
+    @SuppressLint("SetTextI18n")
+    public void UpdateUI(){
+        textView.setText("收到通知，更细UI");
     }
 
 }
